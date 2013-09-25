@@ -1,12 +1,12 @@
 package printing;
 
-public class Printer {
-
-	private boolean isOn;
+public class Printer extends Machine {
+	
 	private String modelNumber;
+	private PaperTray paperTray = new PaperTray();
 	
 	public Printer(boolean isOn, String modelNumber){
-		this.isOn = isOn;
+		super(isOn);
 		this.modelNumber = modelNumber;
 	}
 	
@@ -19,10 +19,14 @@ public class Printer {
 		
 		String texttoPrint = modelNumber + onStatus;
 		
-		while (copies>0){
+		while (copies>0 && !paperTray.isEmpty()){
 			System.out.println(texttoPrint);
 			copies--;
-		}		
+			paperTray.usePage();
+		}
+		
+		if(paperTray.isEmpty())
+			System.out.println("Load more paper");
 	}
 	public void printColors(){
 		String[] colors = new String[]{"RED","BLUE","GREEN","YELLOW"};
@@ -31,6 +35,10 @@ public class Printer {
 			if("Green".equals(currentColor))
 				continue;
 		}
+	}
+
+	public void loadPaper(int i) {
+		paperTray.addPaper(i);
 	}
 	
 }
