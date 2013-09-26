@@ -12,7 +12,7 @@ public class PaperTray {
 		pages--;
 	}
 	
-	public boolean isEmpty(){
+	public boolean isEmpty(){		
 		return pages > 0;
 	}
 }

@@ -19,13 +19,13 @@ public class Printer extends Machine {
 		
 		String texttoPrint = modelNumber + onStatus;
 		
-		while (copies>0 && !paperTray.isEmpty()){
+		while (copies>0 && paperTray.isEmpty()){
 			System.out.println(texttoPrint);
 			copies--;
 			paperTray.usePage();
 		}
 		
-		if(paperTray.isEmpty())
+		if(paperTray.isEmpty()!=true)
 			System.out.println("Load more paper");
 	}
 	public void printColors(){
@@ -39,6 +39,6 @@ public class Printer extends Machine {
 
 	public void loadPaper(int i) {
 		paperTray.addPaper(i);
+		System.out.println(paperTray.pages);
 	}
-	
 }

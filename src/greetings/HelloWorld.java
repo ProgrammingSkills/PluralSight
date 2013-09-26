@@ -9,7 +9,7 @@ public class HelloWorld {
 		Printer myPrinter = new Printer(true, "MY Printer");
 		
 		myPrinter.loadPaper(3);
-		myPrinter.print(4);
+        myPrinter.print(4);
 
 	}
 }
