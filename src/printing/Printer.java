@@ -1,24 +1,37 @@
 package printing;
 
-public class Printer extends Machine {
+public class Printer implements IMachine {
 	
 	private String modelNumber;
 	private PaperTray paperTray = new PaperTray();
+
+	private Machine machine;
+	
 	
 	public Printer(boolean isOn, String modelNumber){
-		super(isOn);
+		machine = new Machine(isOn);
 		this.modelNumber = modelNumber;
 	}
 	
 	@Override
 	public void TurnOn(){
-		System.out.println("Warning up print engnine");
-		super.TurnOn();		
+		System.out.println("System test");
+		machine.TurnOn();
+	}
+	
+	@Override
+	public void TurnOff() {
+		machine.TurnOff();
+	}
+	
+	@Override
+	public boolean isOn(){
+		return machine.isOn();
 	}
 	
 	public void print(int copies){
 		String onStatus = "";
-		if(isOn)
+		if(machine.isOn())
 			onStatus = "Is On";
 		else
 			onStatus = "is Off";
@@ -46,5 +59,5 @@ public class Printer extends Machine {
 	public void loadPaper(int i) {
 		paperTray.addPaper(i);
 		System.out.println(paperTray.pages);
-	}
+	}	
 }

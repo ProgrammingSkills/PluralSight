@@ -1,6 +1,6 @@
 package printing;
 
-public class Machine {
+public class Machine implements IMachine{
 
 	protected boolean isOn;
 	
@@ -12,8 +12,16 @@ public class Machine {
 		isOn = true;
 		System.out.println("Machine is on!");
 	}
-	
-	public void TunrOff(){
+
+	@Override
+	public void TurnOff() {
 		isOn = false;
+		
+	}
+
+	@Override
+	public boolean isOn() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
