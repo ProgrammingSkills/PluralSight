@@ -1,15 +1,19 @@
 package greetings;
 
+import printing.Machine;
 import printing.Printer;
 
 public class HelloWorld {
 
 	public static void main (String[] args) {
 		// TODO Auto-generated constructor stub
-		Printer myPrinter = new Printer(true, "MY Printer");
+		Machine machine = new Printer(true, "MY Printer");
 		
-		myPrinter.loadPaper(3);
-        myPrinter.print(4);
+		//Machine machine = new Machine(false);
+		
+		machine.TurnOn();
+		//myPrinter.loadPaper(3);
+        //myPrinter.print(4);
 
 	}
 }

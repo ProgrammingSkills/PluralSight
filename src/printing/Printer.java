@@ -10,6 +10,12 @@ public class Printer extends Machine {
 		this.modelNumber = modelNumber;
 	}
 	
+	@Override
+	public void TurnOn(){
+		System.out.println("Warning up print engnine");
+		super.TurnOn();		
+	}
+	
 	public void print(int copies){
 		String onStatus = "";
 		if(isOn)
